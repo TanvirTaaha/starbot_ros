@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="cobot">
+  <link name="base_link"/>
+  <joint name="base_link__base_stand" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_stand"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  <link name="base_stand">
+    <inertial>
+      <origin xyz="-0.0024988 0.00012827 0.034299" rpy="0 0 0" />
+      <mass value="1.2649" />
+      <inertia ixx="0.002533" ixy="-7.2003E-06" ixz="8.109E-05" iyy="0.0023931" iyz="-4.1626E-06" izz="0.0041505" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/base_stand.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/base_stand.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="base">
+    <inertial>
+      <origin xyz="-0.00087897 0.0045493 0.030537" rpy="0 0 0" />
+      <mass value="0.69097" />
+      <inertia ixx="0.00068689" ixy="3.5558E-06" ixz="1.3086E-05" iyy="0.00097033" iyz="-1.1454E-05" izz="0.0012375" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_stand__base" type="revolute">
+    <origin xyz="0 0 0.106" rpy="0 0 0.11729" />
+    <parent link="base_stand" />
+    <child link="base" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+  </joint>
+
+  <link name="shoulder">
+    <inertial>
+      <origin xyz="-0.043702 -0.0089462 0.088598" rpy="0 0 0" />
+      <mass value="0.50956" />
+      <inertia ixx="0.0022353" ixy="5.0525E-05" ixz="0.00097691" iyy="0.0027432" iyz="-0.00010402" izz="0.00069497" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/shoulder.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base__shoulder" type="revolute">
+    <origin xyz="0.0205 0 0.06" rpy="0 0 0" />
+    <parent link="base" />
+    <child link="shoulder" />
+    <axis xyz="0 1 0" />
+    <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+  </joint>
+  <link name="elbow">
+    <inertial>
+      <origin xyz="0.10764 0.020329 0.0017657" rpy="0 0 0" />
+      <mass value="0.31089" />
+      <inertia ixx="9.4078E-05" ixy="1.6899E-07" ixz="-2.6416E-05" iyy="0.0017716" iyz="2.7724E-09" izz="0.001704" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/elbow.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder__elbow" type="revolute">
+    <origin xyz="-0.084775 0.025743 0.16726" rpy="0 0 0" />
+    <parent link="shoulder" />
+    <child link="elbow" />
+    <axis xyz="0 1 0" />
+    <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+  </joint>
+  <link name="end_effector">
+    <inertial>
+      <origin xyz="0.10059 -0.0011654 -0.0095762" rpy="0 0 0" />
+      <mass value="0.21582" />
+      <inertia ixx="5.0445E-05" ixy="-1.9198E-05" ixz="3.0188E-05" iyy="0.00021644" iyz="2.8871E-06" izz="0.00023311" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/end_effector.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://cobot_description/meshes/end_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow__end_effector" type="revolute">
+    <origin xyz="0.20962 0 0.0034385" rpy="0 0 0" />
+    <parent link="elbow" />
+    <child link="end_effector" />
+    <axis xyz="0 1 0" />
+    <limit lower="-3.1416" upper="3.1416" effort="0" velocity="0" />
+  </joint>
+</robot>

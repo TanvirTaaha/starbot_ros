@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<library path="lib/libcobot_arm_moveit_ikfast_plugin">
+  <class name="cobot_arm/IKFastKinematicsPlugin" type="cobot_arm::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics of cobot arm</description>
+  </class>
+</library>
