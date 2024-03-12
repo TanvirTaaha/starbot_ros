@@ -13,3 +13,6 @@
 - `ros-$ROS_DISTRO-moveit`
 - `ros-$ROS_DISTRO-moveit-*`
 - `ros-$ROS_DISTRO-rqt-*`
+  
+> joint_state_controller is a common controller needed to publish joint state(need for gazebo or real not sure, maybe both)
+> but controllers for individual joints can be configured one by one or all at ones(I guess) 
