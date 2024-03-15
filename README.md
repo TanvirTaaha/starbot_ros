@@ -22,7 +22,8 @@
 > No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/base_stand__base
 
 For over all walkthorugh:
-- For first time learners: Simulate a single joint(dc motor with encoder) with simple demo urdf:[Youtube](https://youtu.be/88VbbSiAZCk?si=IvtenBTyQzSg1JL4) [Github](https://github.com/bandasaikrishna/ros_control_example.git) [Article(Recommended)](https://www.rosroboticslearning.com/ros-control) 
+- For first time learners: Simulate a single joint(dc motor with encoder) with simple demo urdf:[Youtube](https://youtu.be/88VbbSiAZCk?si=IvtenBTyQzSg1JL4) [Github](https://github.com/bandasaikrishna/ros_control_example.git) [Article(Recommended)](https://www.rosroboticslearning.com/ros-control)
+- For 6dof robot and **hardware interface** [Youtube](https://youtu.be/G_EvFqO7VHM?si=I-jOijv5H4FKw3em) [Github](https://github.com/bandasaikrishna/6-DOF_Manipulator.git) [Article](https://www.rosroboticslearning.com/)
 - Follow this repo [import_your_custom_urdf_package_to_ROS](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main.git) with this [youtube playlist](https://youtube.com/playlist?list=PLeEzO_sX5H6TBD6EMGgV-qdhzxPY19m12&si=NdK21Pe5GSLZaA60)
 
 A good playlist for ros control: [ROS Control](https://youtube.com/playlist?list=PL0LxxVxIWiJJOgmy3xeIUUMxGZBvcpmaT&si=EyB8C3QI9dOkcytn)
