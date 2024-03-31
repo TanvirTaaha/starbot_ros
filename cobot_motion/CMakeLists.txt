@@ -9,9 +9,21 @@ project(cobot_motion)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED
     rospy
+    roscpp
+    actionlib
+    control_msgs
+    controller_manager
+    std_msgs
+    std_srvs
+    tf
+    tf2
+    tf2_ros
+    trajectory_msgs
     moveit_commander
     moveit_msgs
-    geometry_msgs)
+    geometry_msgs
+    visualization_msgs
+    message_generation)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -47,18 +59,16 @@ find_package(catkin REQUIRED
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  FourJoints.msg
+)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  JointSrv.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -68,10 +78,10 @@ find_package(catkin REQUIRED
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs 
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,9 +113,9 @@ find_package(catkin REQUIRED
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES cobot_motion
-#  CATKIN_DEPENDS other_catkin_pkg
+  CATKIN_DEPENDS actionlib control_msgs controller_manager message_runtime roscpp rospy std_msgs std_srvs tf tf2 tf2_ros trajectory_msgs visualization_msgs
 #  DEPENDS system_lib
 )
 
@@ -116,8 +126,8 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
-# ${catkin_INCLUDE_DIRS}
+  include
+  ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -133,7 +143,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/cobot_motion_node.cpp)
+add_executable(cobot_hw_interface src/cobot_hw_interface.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -143,12 +153,12 @@ include_directories(
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(cobot_hw_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(cobot_hw_interface
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##

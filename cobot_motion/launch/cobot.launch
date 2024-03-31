@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- MoveIt options -->
+    <arg name="pipeline" default="ompl" doc="Planning pipeline to use with MoveIt"/>
+    
+    <!-- Launch moveit rviz with ros_controllers -->
+    <include file="$(find cobot_moveit_config)/launch/demo.launch" pass_all_args="true">
+        <arg name="moveit_controller_manager" value="ros_control" />
+    </include>
+    <!-- Launch hardware interface -->
+    <node pkg="cobot_motion" type="cobot_hw_interface" name="cobot_hw_interface" output="screen" respawn="false" respawn_delay="0" />
+
+
+</launch>
