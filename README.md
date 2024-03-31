@@ -27,3 +27,14 @@ For over all walkthorugh:
 - Follow this repo [import_your_custom_urdf_package_to_ROS](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main.git) with this [youtube playlist](https://youtube.com/playlist?list=PLeEzO_sX5H6TBD6EMGgV-qdhzxPY19m12&si=NdK21Pe5GSLZaA60)
 
 A good playlist for ros control: [ROS Control](https://youtube.com/playlist?list=PL0LxxVxIWiJJOgmy3xeIUUMxGZBvcpmaT&si=EyB8C3QI9dOkcytn)
+
+## IKFast Plugin for Moveit
+As this arm is only 4DOF moveit's kdl kinematic solver won't work. 
+[Official tutorial for creating ikfast plugin](https://ros-planning.github.io/moveit_tutorials/doc/ikfast/ikfast_tutorial.html)
+The docker way is recommended:
+- You need to provide the urdf file(xacro won't work)
+    ```bash
+  rosrun xacro xacro -o /tmp/$MYROBOT_NAME.urdf $MYROBOT_NAME.urdf.xacro
+    ```
+- You have to select IK Type from [this page](http://openrave.org/docs/latest_stable/openravepy/ikfast/#ik-types) for this project 
+- 
