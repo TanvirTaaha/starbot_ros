@@ -23,8 +23,8 @@
 > joint_state_controller is a common controller needed to publish joint state(need for gazebo or real not sure, maybe both)
 > but controllers for individual joints can be configured one by one or all at ones(I guess)
 
-> This error may be ignored:
->
+ This error may be ignored:
+
 > No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/base_stand__base
 
 For over all walkthorugh:
