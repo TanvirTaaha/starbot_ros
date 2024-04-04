@@ -1,6 +1,7 @@
 # starbot_ros
  Academic project of BUET
 ## Things that are must after `moveit_setup_assistant`:
+- install dependencies(in your ws directory): `rosdep install --from-paths src --ignore-src -r -y`
 - comfirm installation of `moveit`, `ros-controllers`, `gazebo-ros-pkgs` etc
 - `filename` tag in gazebo plugins tags(major flaw of setup assistant because it is not filled in the auto generated file)
 - `velocity` and `effort` limit must not be zero
